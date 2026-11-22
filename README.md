@@ -56,13 +56,3 @@ Vercel дээр репозиторийн үндсэн хавтас нь root, bu
 | `src/lib/projects.ts` | Supabase уншилт, хүсэлтийг цуцлах ба нөөц өгөгдөл |
 | `src/data/cases.ts` | Төслийн алхам бүрийн тайлбар, кодын зам |
 | `src/styles.css` | Өнгө, үсгийн хэмжээ, responsive дүрэм, хөдөлгөөн багасгах тохиргоо |
-
-## Эх сурвалж
-
-- Нүүр хэсгийн хоёр мөр нэр, зууван хөрөг, өнгөний горимд ашигласан лавлагаа нь даалгаварт хавсаргасан `portfolio-hero.tsx` (ALEX KANE) компонент. [21st.dev](https://21st.dev/)
-- Хөрөг, боловсрол, дадлага, клубийн мэдээлэл нь Ө. Баясгалангийн өөрийн CV-ээс. Нийтийн профайлд сургуулийн имэйл болон GitHub хаягийг ашиглав.
-- GREENROOM-ийн ургамлын зургуудыг тухайн төслийн `PlantArt` компонентоос, музейн гэрэл зургийг өөрийн репозиториос авав. [PlantArt.jsx](https://github.com/B23FA1882/SWE334_PlantStore/blob/main/SWE334_Project_B23FA1882/src/components/PlantArt.jsx) · [Музейн зураг](https://github.com/B23FA1882/SWE334_ISMmuseum/blob/main/public/images/team.webp)
-- Drive. төслийн эх HTML, CSS, JavaScript, автомашины зургуудыг зохиогчийн өгсөн WEB231_midterm_B23FA1882 ZIP-ээс авав. Демо хувилбарт нүүр зургийг WebP болгож, навигацын холбоос, картын дэлгэрэнгүй, жижиг дэлгэцийн өргөн, маягтын локал баталгаажуулалт нэмсэн. [Демогийн эх код](public/projects/drive)
-- Профайл фреймийн байрлал, дүрсүүдийн эх загвар. [Figma](https://www.figma.com/design/OBLNtmdLxOlF87WkaLtqko/Untitled?node-id=1-881)
-- Дүрс ба үсгийн сан. [Lucide](https://lucide.dev/) · [Barlow Condensed](https://fontsource.org/fonts/barlow-condensed) · [Inter](https://fontsource.org/fonts/inter)
-- Код боловсруулах, туршихад ChatGPT Codex ашиглав.
