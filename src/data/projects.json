@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "greenroom",
+    "title": "GREENROOM",
+    "category": "Цахим худалдаа",
+    "description": "Оффистоо тохирох ургамлыг интерактив тавиураас сонгож, арчилгааны мэдээллийг уншаад сагслах дэлгүүр.",
+    "tags": [
+      "React",
+      "Supabase",
+      "Motion"
+    ],
+    "source_url": "https://github.com/B23FA1882/SWE334_PlantStore",
+    "live_url": "https://swe-334-plant-store.vercel.app",
+    "sort_order": 1
+  },
+  {
+    "slug": "ism-museum",
+    "title": "ISM Digital Museum",
+    "category": "Дижитал архив",
+    "description": "СЭЗИС-ийн Мэдээллийн системийн менежментийн тэнхимийн түүх, багш нар, оюутны бүтээлийг нэг дороос үзэх музей.",
+    "tags": [
+      "React",
+      "Supabase",
+      "PostgreSQL"
+    ],
+    "source_url": "https://github.com/B23FA1882/SWE334_ISMmuseum",
+    "live_url": "https://swe334ismmuseum.vercel.app",
+    "sort_order": 2
+  },
+  {
+    "slug": "web231",
+    "title": "Drive. · WEB231 Midterm",
+    "category": "Веб дизайн",
+    "description": "Автомашины туршилтын жолоодлогод зориулсан танилцуулга. Машины төрлүүд, жолоочдын түүх, машин болон байршил сонгох маягтыг HTML, CSS, JavaScript-аар бүтээсэн.",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "source_url": "https://github.com/B23FA1882/SWE334_Portfolio/tree/main/public/projects/drive",
+    "live_url": "/projects/drive/",
+    "sort_order": 3
+  },
+  {
+    "slug": "figma-profile",
+    "title": "Хэрэглэгчийн мэдээлэл",
+    "category": "Интерфэйс дизайн",
+    "description": "Гар утсан дээр өөрийн бүртгэлийг унших, мэдээллээ шинэчлэх дэлгэцийн Figma загвар.",
+    "tags": [
+      "Figma",
+      "UI дизайн",
+      "Mobile"
+    ],
+    "source_url": "https://www.figma.com/design/OBLNtmdLxOlF87WkaLtqko/Untitled?node-id=1-881",
+    "live_url": null,
+    "sort_order": 4
+  }
+]
