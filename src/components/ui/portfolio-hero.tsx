@@ -28,7 +28,6 @@ export default function PortfolioHero() {
       <span className="location"><MapPin size={15} aria-hidden="true"/> Монгол, Улаанбаатар</span>
       <div className="hero-intro">
         <p className="role">Мэдээллийн системийн менежментийн оюутан</p>
-        <p className="tagline">Би өгөгдлийг цэгцэлж, хүнд хэрэглэхэд эвтэйхэн веб систем бүтээдэг.</p>
       </div>
       <a className="work-jump" href="#work"><span className="scroll-mark" aria-hidden="true"/>Бүтээлүүд үзэх</a>
     </div>
