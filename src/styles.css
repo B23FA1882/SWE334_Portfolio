@@ -45,7 +45,7 @@ h1,h2,h3,p { margin: 0; }
 .skip-link:focus { transform: none; }
 .masthead { position: relative; z-index: 5; border-bottom: 1px solid var(--line); }
 .mast-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 2rem; }
-.brand, .nav-tools, .desktop-nav, .location, .folio-label, .year-label, .work-jump, .section-label, .source-link, .contact-email a, .contact-git, .button { display: inline-flex; align-items: center; }
+.brand, .nav-tools, .desktop-nav, .location, .folio-label, .work-jump, .section-label, .source-link, .contact-email a, .contact-git, .button { display: inline-flex; align-items: center; }
 .brand { gap: 16px; }
 .monogram { font-size: 2.2rem; line-height: 1; font-weight: 820; letter-spacing: -.09em; }
 .monogram span { color: var(--accent-ink); }
@@ -59,11 +59,9 @@ h1,h2,h3,p { margin: 0; }
 .theme-toggle:hover, .icon-button:hover, .mobile-menu:hover { background: var(--raised); }
 .mobile-menu,.mobile-nav { display: none; }
 .hero { position: relative; border-bottom: 1px solid var(--line); padding-top: clamp(24px,3.5vw,48px); }
-.folio-label, .year-label, .section-label, .meta { font-family: var(--mono); font-size: .76rem; font-weight: 600; letter-spacing: .095em; }
-.folio-label { gap: 10px; }
+.section-label, .meta { font-family: var(--mono); font-size: .76rem; font-weight: 600; letter-spacing: .095em; }
+.folio-label { gap: 10px; font-family: var(--sans); font-size: .875rem; font-weight: 600; }
 .folio-label i { display: inline-block; width: 11px; height: 11px; background: var(--accent-ink); clip-path: polygon(50% 0,60% 37%,94% 13%,72% 46%,100% 50%,72% 57%,92% 87%,59% 66%,50% 100%,40% 65%,9% 89%,29% 55%,0 50%,29% 44%,8% 13%,40% 36%); }
-.year-label { gap: 12px; color: var(--muted); }
-.year-label span { color: var(--accent-ink); }
 .name-stage { position: relative; margin: clamp(24px,3.4vw,53px) 0 clamp(20px,3.4vw,50px); padding: .15rem 0 .65rem; }
 .name-stage::before, .name-stage::after { content: ''; width: 11px; height: 11px; position: absolute; top: 52%; background: linear-gradient(var(--line),var(--line)) center/100% 1px no-repeat,linear-gradient(var(--line),var(--line)) center/1px 100% no-repeat; }
 .name-stage::before { left: 0; }.name-stage::after { right: 0; }
@@ -196,7 +194,7 @@ section h2 em, footer h2 em { font-weight: 460; font-family: Georgia,'Times New 
   .theme-toggle,.mobile-menu { width: 36px; height: 36px; }
   .mobile-nav { display: grid; position: absolute; inset: 100% 0 auto; padding: 7px 19px 13px; background: var(--bg); border-bottom: 1px solid var(--line); box-shadow: 0 13px 25px #0002; }
   .mobile-nav a { padding: 10px 6px; }.mobile-nav a + a { border-top: 1px solid var(--line); }
-  .hero { padding-top: 25px; }.folio-label,.year-label { font-size: .65rem; letter-spacing: .065em; }.year-label { gap: 6px; }
+  .hero { padding-top: 25px; }
   .name-stage { margin: 44px 0 32px; }.name-stage h1 { font-size: clamp(51px,15.2vw,109px); line-height: .84; }
   .name-stage::before,.name-stage::after { width: 5px; height: 5px; }
   .portrait { width: clamp(51px,11.9vw,87px); border-width: 1.5px; }.photo-symbol { width: 18px; height: 18px; }.photo-symbol svg { width: 11px; }
@@ -213,7 +211,6 @@ section h2 em, footer h2 em { font-weight: 460; font-family: Georgia,'Times New 
 }
 @media (max-width: 365px) {
   .wrap { width: calc(100% - 28px); }.brand-text { font-size: .75rem; }
-  .hero-top { gap: 4px; }.year-label,.folio-label { font-size: .59rem; }
   .tagline { font-size: .84rem; }.location,.work-jump { font-size: .68rem; }
   .project-foot { gap: 5px; }.tags span { font-size: .68rem; padding-inline: 6px; }
 }

@@ -11,9 +11,8 @@ function NameLine({ word, second = false }: { word: string; second?: boolean }) 
 export default function PortfolioHero() {
   const [color, setColor] = useState(false)
   return <section className="hero wrap" aria-labelledby="hero-title">
-    <div className="hero-top flex items-center justify-between">
-      <span className="folio-label"><i/>ХУВИЙН ПОРТФОЛИО</span>
-      <span className="year-label">SWE334 <span>/</span> 2026</span>
+    <div className="flex items-center">
+      <span className="folio-label"><i/>Хувийн портфолио</span>
     </div>
     <div className="name-stage">
       <h1 id="hero-title" aria-label="Өнөрсайханы Баясгалан">
