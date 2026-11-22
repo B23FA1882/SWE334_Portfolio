@@ -1,5 +1,7 @@
 # SWE334 · Портфолиог хамгаалах тэмдэглэл
 
+[Портфолио нээх](https://sweportfolio-sigma.vercel.app/) · [Drive. демо](https://sweportfolio-sigma.vercel.app/projects/drive/)
+
 ## Хоёр минутын амьд үзүүлбэр
 
 | Хугацаа | Дэлгэц дээр хийх үйлдэл | Хэлэх санаа |
