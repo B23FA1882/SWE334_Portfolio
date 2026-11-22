@@ -2,7 +2,7 @@
 
 Өнөрсайханы Баясгалан · СЭЗИС, Мэдээллийн системийн менежмент. Төслүүдийн нүүрэн тал болон цаад ажиллагааг хамтад нь үзүүлдэг хувийн портфолио.
 
-[Портфолио нээх](https://sweportfolio-sigma.vercel.app/) · [GitHub репозитор](https://github.com/B23FA1882/SWE334_Portfolio) · [3 минутын хамгаалалтын тэмдэглэл](docs/defense.md)
+[Портфолио нээх](https://sweportfolio-sigma.vercel.app/) · [GitHub репозитор](https://github.com/B23FA1882/SWE334_Portfolio)
 
 ## Бүтээлүүд
 
@@ -65,4 +65,4 @@ Vercel дээр репозиторийн үндсэн хавтас нь root, bu
 - Drive. төслийн эх HTML, CSS, JavaScript, автомашины зургуудыг зохиогчийн өгсөн WEB231_midterm_B23FA1882 ZIP-ээс авав. Демо хувилбарт нүүр зургийг WebP болгож, навигацын холбоос, картын дэлгэрэнгүй, жижиг дэлгэцийн өргөн, маягтын локал баталгаажуулалт нэмсэн. [Демогийн эх код](public/projects/drive)
 - Профайл фреймийн байрлал, дүрсүүдийн эх загвар. [Figma](https://www.figma.com/design/OBLNtmdLxOlF87WkaLtqko/Untitled?node-id=1-881)
 - Дүрс ба үсгийн сан. [Lucide](https://lucide.dev/) · [Barlow Condensed](https://fontsource.org/fonts/barlow-condensed) · [Inter](https://fontsource.org/fonts/inter)
-- Код боловсруулах, турших болон хамгаалалтын тэмдэглэл бэлдэхэд ChatGPT Codex ашиглав.
+- Код боловсруулах, туршихад ChatGPT Codex ашиглав.
