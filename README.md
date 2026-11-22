@@ -25,24 +25,6 @@ React, TypeScript, Vite, Tailwind CSS 4, Lucide, Supabase PostgreSQL / REST, Ver
 
 Зочны эрх нь `SELECT` бөгөөд RLS нь `published = true` мөрүүдийг л уншуулна. `src/lib/public-config.ts` доторх браузерын publishable key нь нийтэд ашиглах зориулалттай. Backend админы түлхүүр шаардахгүй. Сонгосон төслийг солих бол `.env.example`-ийг `.env.local` болгон хуулж хоёр утгыг бөглөнө. Хоосон Supabase төсөлд зориулсан хүснэгт, дүрэм, эхний өгөгдөл `supabase/migrations` дотор бий.
 
-## VS Code дээр ажиллуулах
-
-Node.js 22.12 буюу түүнээс шинэ хувилбар ашиглана. `package.json` байгаа хавтсыг VS Code-оор нээж Terminal дээр ажиллуулна.
-
-```powershell
-npm ci
-npm run dev
-```
-
-Vite-ийн хэвлэсэн Local хаягийг нээнэ. Production build шалгахдаа дараах командыг ашиглана.
-
-```powershell
-npm run build
-npm run preview
-```
-
-Vercel дээр репозиторийн үндсэн хавтас нь root, build нь `npm run build`, гаралт нь `dist`.
-
 ## Кодыг хаанаас унших вэ?
 
 | Файл | Хариуцах хэсэг |
