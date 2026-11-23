@@ -84,6 +84,12 @@ h1,h2,h3,p { margin: 0; }
 .scroll-mark::before { content: ''; position: absolute; left: 5px; top: 4px; width: 2px; height: 5px; border-radius: 3px; background: var(--accent-ink); }
 .hero-intro { text-align: center; }
 .role { font-size: clamp(.94rem,1.25vw,1.15rem); font-weight: 580; letter-spacing: -.025em; }
+.career-options { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: .85rem; }
+.career-options button { border: 1px solid var(--line); border-radius: 999px; padding: .4rem .8rem; font-size: .82rem; color: var(--text); }
+.career-options button:hover { border-color: var(--accent-ink); }
+.career-options button[aria-pressed="true"] { background: var(--accent-ink); border-color: var(--accent-ink); color: var(--bg); }
+.career-description { max-width: 48ch; margin-inline: auto; font-size: .88rem; color: var(--muted); text-wrap: balance; }
+.career-description:not(:empty) { margin-top: .6rem; }
 .tagline { max-width: 425px; margin: .4rem auto 0; color: var(--muted); font-size: .895rem; text-wrap: balance; }
 .section { padding-block: clamp(43px,5.7vw,84px) clamp(54px,7vw,105px); }
 .section-top { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: clamp(26px,3vw,44px); }
