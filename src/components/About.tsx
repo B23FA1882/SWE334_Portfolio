@@ -1,9 +1,9 @@
 import { Braces, Database, UsersRound } from 'lucide-react'
 
 const skills = [
-  { icon: Braces, name: 'Веб хөгжүүлэлт', values: 'React, JavaScript, HTML, CSS' },
-  { icon: Database, name: 'Өгөгдөл ба шинжилгээ', values: 'MS SQL, PostgreSQL, Power BI, EViews' },
-  { icon: UsersRound, name: 'Баг ба харилцаа', values: 'Багаар ажиллах, асуудал шийдвэрлэх, англи хэл · IELTS 7.5' },
+  { icon: Braces, name: 'Веб хөгжүүлэлт', level: 80, values: 'React, JavaScript, HTML, CSS' },
+  { icon: Database, name: 'Өгөгдөл ба шинжилгээ', level: 75, values: 'MS SQL, PostgreSQL, Power BI, EViews' },
+  { icon: UsersRound, name: 'Баг ба харилцаа', level: 80, values: 'Багаар ажиллах, асуудал шийдвэрлэх, англи хэл · IELTS 7.5' },
 ]
 const journey = [
   ['2022', 'Redpath Mongolia', 'Хүний нөөцийн бүртгэл, мэдээлэл'],
@@ -22,8 +22,22 @@ export default function About() {
         <p>Хичээлээс гадуур White Hats клубийн гишүүн, Cups клубийн гишүүн. Чөлөөт цагаараа сагсан бөмбөг тоглож, сур харвах дуртай.</p>
       </div>
       <div className="about-detail">
-        <h3>Ур чадвар</h3>
-        <div className="skill-list">{skills.map(({icon: Icon,name,values}) => <div className="skill-row" key={name}><Icon size={19}/><div><strong>{name}</strong><p>{values}</p></div></div>)}</div>
+        <div className="skills-heading">
+          <h3>Ур чадвар</h3>
+          <span>Өөрийн үнэлгээ</span>
+        </div>
+        <div className="skill-list">
+          {skills.map(({ icon: Icon, name, values, level }) => (
+            <div className="skill-row" key={name}>
+              <Icon size={19} aria-hidden="true"/>
+              <div>
+                <div className="skill-rating"><strong>{name}</strong><span>{level}%</span></div>
+                <p>{values}</p>
+                <div className="skill-track" aria-hidden="true"><span style={{ width: level + '%' }}/></div>
+              </div>
+            </div>
+          ))}
+        </div>
         <h3 className="journey-title">Туршлага ба боловсрол</h3>
         <ol className="journey">{journey.map(([year,title,detail]) => <li key={title}><span>{year}</span><div><strong>{title}</strong><p>{detail}</p></div></li>)}</ol>
       </div>
