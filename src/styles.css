@@ -237,3 +237,28 @@ section h2 em, footer h2 em { font-weight: 460; font-family: Georgia,'Times New 
 .art-drive::after { content: ''; position: absolute; inset: 0; background: linear-gradient(75deg, #121d27c2, transparent 76%); }
 .drive-wordmark { position: absolute; z-index: 1; left: 8%; bottom: 16%; color: #fff; font: 800 clamp(40px,5.8vw,90px)/.98 var(--display); letter-spacing: -.04em; }
 .drive-wordmark small { display: block; margin: 3px 0; font: 700 clamp(9px,1vw,14px)/1.3 var(--sans); letter-spacing: .04em; }
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.language-switch button {
+  min-width: 36px;
+  min-height: 32px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 620;
+  color: var(--muted);
+}
+.language-switch button:hover { color: var(--text); }
+.language-switch button[aria-pressed='true'] { background: var(--acid); color: #171a0e; }
+@media (max-width: 420px) {
+  .nav-tools { gap: 5px; }
+  .mast-inner, .brand { gap: 6px; }
+}
+@media (max-width: 350px) {
+  .brand-rule, .brand-text { display: none; }
+}

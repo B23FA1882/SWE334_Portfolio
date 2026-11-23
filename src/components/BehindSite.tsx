@@ -1,3 +1,4 @@
+import { useLanguage } from '@/lib/language'
 import { Plus } from 'lucide-react'
 const repo = 'https://github.com/B23FA1882/SWE334_Portfolio/blob/main/'
 const questions = [
@@ -7,8 +8,9 @@ const questions = [
   ['Гар утас болон гарын товчоор хэрхэн ашиглах вэ?', '720 пиксел болон түүнээс бага өргөнд картууд нэг баганад орж, цэс товч руу шилжинэ. Tab-аар үйлдэл бүрт очиж, Escape-аар цэс эсвэл төслийн цонхыг хааж болно. Хөдөлгөөн багасгах тохиргоотой үед нэрийн анимэйшн алгасагдана.', 'src/styles.css'],
 ]
 export default function BehindSite() {
+  const { t } = useLanguage()
   return <section id="process" className="process-section wrap" aria-labelledby="process-title">
-    <div><span className="section-label"><span className="label-line"/>BUILD NOTES</span><h2 id="process-title">Сайтын <em>цаана.</em></h2></div>
-    <div className="questions">{questions.map(([q,a,file]) => <details key={q}><summary>{q}<Plus size={19}/></summary><div><p>{a}</p><a href={repo + file} target="_blank" rel="noreferrer">Холбогдох код үзэх</a></div></details>)}</div>
+    <div><span className="section-label"><span className="label-line"/>{t("ХӨГЖҮҮЛЭЛТ")}</span><h2 id="process-title">{t("Сайтын")} <em>{t("цаана.")}</em></h2></div>
+    <div className="questions">{questions.map(([q,a,file]) => <details key={q}><summary>{t(q)}<Plus size={19}/></summary><div><p>{t(a)}</p><a href={repo + file} target="_blank" rel="noreferrer">{t("Холбогдох код үзэх")}</a></div></details>)}</div>
   </section>
 }

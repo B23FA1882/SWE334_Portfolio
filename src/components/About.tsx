@@ -1,3 +1,4 @@
+import { useLanguage } from '@/lib/language'
 import { Braces, Database, UsersRound } from 'lucide-react'
 
 const skills = [
@@ -17,23 +18,24 @@ const experience = [
 ]
 
 export default function About() {
+  const { t } = useLanguage()
   return <section className="about-section" id="about" aria-labelledby="about-title">
     <div className="wrap about-grid">
       <div className="about-intro">
-        <span className="section-label"><span className="label-line"/>ABOUT ME</span>
-        <h2 id="about-title">Миний <em>тухай.</em></h2>
-        <p className="about-lead">Сайн уу, би Өнөрсайханы Баясгалан.</p>
-        <p>Би СЭЗИС-д мэдээллийн системийн менежментээр дөрөвдүгээр курст суралцдаг. Хүний нөөцийн бүртгэл дээр ажиллаж, дадлагаараа CV бүртгэх програм хийхдээ мэдээллийг зөв зохион байгуулах нь хэрэглэгчийн ажлыг хэрхэн хөнгөвчилдгийг ойлгосон.</p>
-        <p>Хичээлээс гадуур White Hats клубийн гишүүн, Cups клубийн гишүүн. Чөлөөт цагаараа сагсан бөмбөг тоглож, сур харвах дуртай.</p>
-        <h3 className="journey-title">Боловсрол</h3>
+        <span className="section-label"><span className="label-line"/>{t("ТАНИЛЦУУЛГА")}</span>
+        <h2 id="about-title">{t("Миний")} <em>{t("тухай.")}</em></h2>
+        <p className="about-lead">{t("Сайн уу, би Өнөрсайханы Баясгалан.")}</p>
+        <p>{t("Би СЭЗИС-д мэдээллийн системийн менежментээр дөрөвдүгээр курст суралцдаг. Хүний нөөцийн бүртгэл дээр ажиллаж, дадлагаараа CV бүртгэх програм хийхдээ мэдээллийг зөв зохион байгуулах нь хэрэглэгчийн ажлыг хэрхэн хөнгөвчилдгийг ойлгосон.")}</p>
+        <p>{t("Хичээлээс гадуур White Hats клубийн гишүүн, Cups клубийн гишүүн. Чөлөөт цагаараа сагсан бөмбөг тоглож, сур харвах дуртай.")}</p>
+        <h3 className="journey-title">{t("Боловсрол")}</h3>
         <ol className="journey">
           {education.map(({ years, school, program, grade }) => (
             <li key={school}>
               <span>{years}</span>
               <div>
-                <strong>{school}</strong>
-                <p>{program}</p>
-                {grade && <p>Голч дүн: {grade}</p>}
+                <strong>{t(school)}</strong>
+                <p>{t(program)}</p>
+                {grade && <p>{t("Голч дүн:")} {grade}</p>}
               </div>
             </li>
           ))}
@@ -41,25 +43,25 @@ export default function About() {
       </div>
       <div className="about-detail">
         <div className="skills-heading">
-          <h3>Ур чадвар</h3>
-          <span>Өөрийн үнэлгээ</span>
+          <h3>{t("Ур чадвар")}</h3>
+          <span>{t("Өөрийн үнэлгээ")}</span>
         </div>
         <div className="skill-list">
           {skills.map(({ icon: Icon, name, values, level }) => (
             <div className="skill-row" key={name}>
               <Icon size={19} aria-hidden="true"/>
               <div>
-                <div className="skill-rating"><strong>{name}</strong><span>{level}%</span></div>
-                <p>{values}</p>
+                <div className="skill-rating"><strong>{t(name)}</strong><span>{level}%</span></div>
+                <p>{t(values)}</p>
                 <div className="skill-track" aria-hidden="true"><span style={{ width: level + '%' }}/></div>
               </div>
             </div>
           ))}
         </div>
-        <h3 className="journey-title">Ажлын туршлага</h3>
-        <ol className="journey">{experience.map(([year,title,detail]) => <li key={title}><span>{year}</span><div><strong>{title}</strong><p>{detail}</p></div></li>)}</ol>
-        <h3 className="journey-title">Хэл</h3>
-        <p>Англи хэл · IELTS 7.5</p>
+        <h3 className="journey-title">{t("Ажлын туршлага")}</h3>
+        <ol className="journey">{experience.map(([year,title,detail]) => <li key={title}><span>{year}</span><div><strong>{t(title)}</strong><p>{t(detail)}</p></div></li>)}</ol>
+        <h3 className="journey-title">{t("Хэл")}</h3>
+        <p>{t("Англи хэл · IELTS 7.5")}</p>
       </div>
     </div>
   </section>

@@ -1,3 +1,4 @@
+import { useLanguage } from '@/lib/language'
 import { useEffect, useRef, useState } from 'react'
 import { Menu, Moon, Sun, X } from 'lucide-react'
 
@@ -10,6 +11,7 @@ function initialTheme() {
 }
 
 export default function Header() {
+  const { t, language, setLanguage } = useLanguage()
   const [theme, setTheme] = useState(initialTheme)
   const [open, setOpen] = useState(false)
   const menu = useRef<HTMLElement>(null)
@@ -42,24 +44,32 @@ export default function Header() {
 
   return <header className="masthead" ref={menu}>
     <div className="wrap mast-inner">
-      <a className="brand" href="#top" aria-label="Ө. Баясгалан, нүүр" onClick={() => setOpen(false)}>
+      <a className="brand" href="#top" aria-label={t("Ө. Баясгалан, нүүр")} onClick={() => setOpen(false)}>
         <span className="monogram" aria-hidden="true">ub<span>.</span></span>
-        <span className="brand-rule"/><span className="brand-text">Ө. Баясгалан</span>
+        <span className="brand-rule"/><span className="brand-text">{t("Ө. Баясгалан")}</span>
       </a>
-      <nav className="desktop-nav" aria-label="Үндсэн цэс">
-        {nav.map(([to,label]) => <a href={to} key={to}>{label}</a>)}
+      <nav className="desktop-nav" aria-label={t("Үндсэн цэс")}>
+        {nav.map(([to,label]) => <a href={to} key={to}>{t(label)}</a>)}
       </nav>
       <div className="nav-tools">
-        <button className="theme-toggle" type="button" aria-label={theme === 'dark' ? 'Гэрэлтэй горимд шилжих' : 'Бараан горимд шилжих'} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+        <button className="theme-toggle" type="button" aria-label={theme === 'dark' ? t("Гэрэлтэй горимд шилжих") : t("Бараан горимд шилжих")} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
           {theme === 'dark' ? <Sun size={18}/> : <Moon size={17}/>}
         </button>
-        <button className="mobile-menu" ref={trigger} aria-label={open ? 'Цэс хаах' : 'Цэс нээх'} aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>
+        <div className="language-switch" role="group" aria-label={t('Хуудасны хэл')}>
+          {(['mn', 'en'] as const).map(code => (
+            <button key={code} type="button" lang={code} aria-label={code === 'mn' ? 'Монгол' : 'English'}
+              aria-pressed={language === code} onClick={() => setLanguage(code)}>
+              {code.toUpperCase()}
+            </button>
+          ))}
+        </div>
+        <button className="mobile-menu" ref={trigger} aria-label={open ? t("Цэс хаах") : t("Цэс нээх")} aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>
           {open ? <X size={20}/> : <Menu size={20}/>}
         </button>
       </div>
     </div>
-    {open && <nav id="mobile-nav" className="mobile-nav" aria-label="Гар утасны цэс">
-      {nav.map(([to,label]) => <a key={to} href={to} onClick={() => setOpen(false)}>{label}</a>)}
+    {open && <nav id="mobile-nav" className="mobile-nav" aria-label={t("Гар утасны цэс")}>
+      {nav.map(([to,label]) => <a key={to} href={to} onClick={() => setOpen(false)}>{t(label)}</a>)}
     </nav>}
   </header>
 }
