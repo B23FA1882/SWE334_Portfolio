@@ -56,7 +56,7 @@ export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
   return <section className="work-section section wrap" id="work" aria-labelledby="work-title">
     <div className="section-top">
-      <div><span className="section-label"><span className="label-line"/>SELECTED WORK</span><h2 id="work-title">Сонгосон <em>бүтээлүүд.</em></h2></div>
+      <div><span className="section-label"><span className="label-line"/>WORK</span><h2 id="work-title"><em>Бүтээлүүд.</em></h2></div>
       <div className="view-toggle" role="group" aria-label="Бүтээлүүдийн харагдац">
         <button aria-pressed={!inside} onClick={() => setInside(false)}><Monitor size={16}/>Гадаад төрх</button>
         <button aria-pressed={inside} onClick={() => setInside(true)}><ScanLine size={16}/>Дотор нь</button>
