@@ -36,7 +36,7 @@ function CaseDialog({ project, onClose }: { project: Project; onClose: () => voi
     document.body.style.overflow = 'hidden'
     return () => { node?.close(); document.body.style.overflow = previousOverflow }
   }, [])
-  return <dialog ref={dialog} className="case-dialog" aria-labelledby="case-title" onCancel={onClose}
+  return <dialog data-lenis-prevent="" ref={dialog} className="case-dialog" aria-labelledby="case-title" onCancel={onClose}
     onClick={event => { if (event.target === event.currentTarget) onClose() }}>
     <div className="dialog-body">
       <div className="dialog-top"><span className="meta">{t(project.category)}</span>

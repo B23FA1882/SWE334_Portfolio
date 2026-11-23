@@ -239,13 +239,27 @@ section h2 em, footer h2 em { font-weight: 460; font-family: Georgia,'Times New 
 .drive-wordmark small { display: block; margin: 3px 0; font: 700 clamp(9px,1vw,14px)/1.3 var(--sans); letter-spacing: .04em; }
 
 .language-switch {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px;
+  --inset: 3px;
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: var(--inset);
   border: 1px solid var(--line);
   border-radius: 999px;
 }
+.language-switch::before {
+  content: '';
+  position: absolute;
+  inset: var(--inset) auto var(--inset) var(--inset);
+  width: calc(50% - var(--inset));
+  border-radius: inherit;
+  background: var(--acid);
+  pointer-events: none;
+  transition: transform 220ms cubic-bezier(.22, 1, .36, 1);
+}
+.language-switch[data-language='en']::before { transform: translateX(100%); }
 .language-switch button {
+  position: relative;
   min-width: 36px;
   min-height: 32px;
   border-radius: 999px;
@@ -254,7 +268,7 @@ section h2 em, footer h2 em { font-weight: 460; font-family: Georgia,'Times New 
   color: var(--muted);
 }
 .language-switch button:hover { color: var(--text); }
-.language-switch button[aria-pressed='true'] { background: var(--acid); color: #171a0e; }
+.language-switch button[aria-pressed='true'] { color: #171a0e; }
 @media (max-width: 420px) {
   .nav-tools { gap: 5px; }
   .mast-inner, .brand { gap: 6px; }

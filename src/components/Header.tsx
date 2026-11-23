@@ -55,7 +55,7 @@ export default function Header() {
         <button className="theme-toggle" type="button" aria-label={theme === 'dark' ? t("Гэрэлтэй горимд шилжих") : t("Бараан горимд шилжих")} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
           {theme === 'dark' ? <Sun size={18}/> : <Moon size={17}/>}
         </button>
-        <div className="language-switch" role="group" aria-label={t('Хуудасны хэл')}>
+        <div className="language-switch" data-language={language} role="group" aria-label={t('Хуудасны хэл')}>
           {(['mn', 'en'] as const).map(code => (
             <button key={code} type="button" lang={code} aria-label={code === 'mn' ? 'Монгол' : 'English'}
               aria-pressed={language === code} onClick={() => setLanguage(code)}>
