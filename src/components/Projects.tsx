@@ -39,7 +39,9 @@ function CaseDialog({ project, onClose }: { project: Project; onClose: () => voi
       <div className="dialog-top"><span className="meta">{project.category}</span>
         <button autoFocus className="icon-button" aria-label="Дэлгэрэнгүй цонх хаах" onClick={onClose}><X size={19}/></button></div>
       <h2 id="case-title">{project.title}</h2><p className="dialog-desc">{project.description}</p>
-      {project.slug === 'figma-profile' ? <div className="dialog-fig"><FigmaScreen interactive/><p>Нэр, овог засаж, маягтыг доош гүйлгээд шинэчилж үзээрэй. Жишээ утгууд энэ цонхонд л харагдана.</p></div> : <ProjectArt project={project}/>}
+      {project.slug === 'figma-profile' ? <div className="dialog-fig"><FigmaScreen interactive/><p>Нэр, овог засаж, маягтыг доош гүйлгээд шинэчилж үзээрэй. Жишээ утгууд энэ цонхонд л харагдана.</p></div> : project.live_url ? (
+        <iframe className="project-preview" src={project.live_url} title={project.title + ' — сайтын үзүүлэн'}/>
+      ) : <ProjectArt project={project}/>}
       <ProjectFlow key={project.slug} project={project}/>
       <div className="dialog-links">
         {project.live_url && <a className="button primary" href={project.live_url} target="_blank" rel="noreferrer"><Monitor size={16}/>Сайт нээх</a>}

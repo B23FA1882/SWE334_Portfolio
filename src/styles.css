@@ -141,6 +141,8 @@ section h2 em, footer h2 em { font-weight: 460; font-family: Georgia,'Times New 
 .step-detail a, .questions details a { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; color: var(--accent-ink); font-size: .83rem; text-decoration: underline; text-underline-offset: 3px; }
 .empty { margin-top: 20px; color: var(--muted); }
 .case-dialog { width: min(640px,calc(100% - 24px)); padding: 0; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 18px; max-height: 90vh; max-height: 90dvh; box-shadow: 0 30px 90px #0007; }
+.case-dialog:has(.project-preview) { width: min(1000px,calc(100% - 24px)); }
+.project-preview { display: block; width: 100%; height: 55vh; height: 55dvh; border: 1px solid var(--line); border-radius: 12px; background: white; }
 .case-dialog::backdrop { background: #080a08b8; backdrop-filter: blur(5px); }
 .dialog-body { padding: clamp(20px,4vw,34px); }
 .dialog-top, .dialog-links { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
