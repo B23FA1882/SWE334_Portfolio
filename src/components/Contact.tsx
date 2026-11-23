@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, Copy, Figma, Github, Mail } from 'lucide-react'
+import { Check, Copy, Download, Figma, Github, Mail } from 'lucide-react'
 const email = 'B23FA1882@ufe.edu.mn'
 
 export default function Contact() {
@@ -24,6 +24,7 @@ export default function Contact() {
           </div>
           <a className="contact-git" href="https://github.com/B23FA1882" target="_blank" rel="noreferrer"><Github size={19}/>GitHub · B23FA1882</a>
           <a className="contact-git" href="https://www.figma.com/design/OBLNtmdLxOlF87WkaLtqko/Untitled?node-id=1-788" target="_blank" rel="noreferrer"><Figma size={19}/>Figma · Миний дизайн</a>
+          <a className="contact-git" href="/downloads/U-Bayasgalan-CV.pdf" download="U-Bayasgalan-CV.pdf"><Download size={19} aria-hidden="true"/>CV татах (PDF)</a>
           <span className="copy-feedback" role="status">{copyStatus}</span>
         </div>
       </div>
