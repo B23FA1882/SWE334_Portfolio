@@ -116,7 +116,7 @@ section h2 em, footer h2 em { font-weight: 460; font-family: Georgia,'Times New 
 .art-figma { background-color: #ceb7a4; background-image: radial-gradient(#886c5b80 .65px,transparent .9px),radial-gradient(ellipse at 79% 85%,#eed9bb,transparent 75%); background-size: 7px 7px,100% 100%; }
 .figma-caption { display: grid; gap: 8px; position: absolute; left: 8%; top: 15%; color: #443125; }
 .figma-caption span { font: 500 clamp(24px,3.9vw,62px)/1 Georgia,serif; letter-spacing: -.06em; }
-.phone-shell { position: absolute; width: 32%; top: 7%; right: 13%; border: 4px solid #302f29; border-radius: 10% / 5%; overflow: hidden; transform: rotate(8deg); box-shadow: 12px 20px 26px #4a2e263f; }
+.phone-shell { position: absolute; width: 22%; top: 6%; right: 17%; border: 4px solid #302f29; border-radius: 10% / 5%; overflow: hidden; transform: rotate(8deg); box-shadow: 12px 20px 26px #4a2e263f; }
 .art-archive { display: grid; place-items: center; color: #2b3247; background: radial-gradient(ellipse at 70% 24%,#dce2fb,#a5b1d4); }
 .archive-folder { display: grid; align-content: center; justify-items: start; padding: 9% 14%; position: relative; width: 65%; height: 58%; border-radius: 6px 9px 9px 9px; background: #e2e8f7; box-shadow: 6px 14px 28px #3a507834; transform: rotate(-7deg); }
 .archive-folder::before { content: ''; position: absolute; top: -10%; height: 16%; width: 32%; left: 0; border-radius: 6px 8px 0 0; background: #e2e8f7; }.archive-folder b { font: 800 clamp(30px,4.5vw,77px)/1 var(--display); letter-spacing: -.03em; }
@@ -149,7 +149,7 @@ section h2 em, footer h2 em { font-weight: 460; font-family: Georgia,'Times New 
 .dialog-top .icon-button { width: 36px; height: 36px; }
 .case-dialog h2 { font-size: clamp(1.8rem,4.2vw,2.8rem); line-height: 1.1; margin: .5rem 0; }
 .dialog-desc { font-size: 1rem; margin-bottom: 20px; }
-.dialog-fig { padding: 18px; border-radius: 12px; background: #d6c1a9; }.dialog-fig .figma-screen { width: min(100%,250px); margin: 0 auto; box-shadow: 0 8px 24px #3d281e30; }
+.dialog-fig { padding: 18px; border-radius: 12px; background: #d6c1a9; }
 .dialog-body > .flow { padding: 24px 0; }.dialog-links { justify-content: flex-start; flex-wrap: wrap; }
 .button { gap: 8px; font-size: .89rem; font-weight: 580; padding: 10px 16px; border-radius: 30px; }
 .primary { color: #1c2512; background: var(--acid); }.outline { border: 1px solid var(--line); }

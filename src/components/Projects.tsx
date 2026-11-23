@@ -3,7 +3,7 @@ import { BookOpen, Code2, ExternalLink, GitBranch, Layers3, Monitor, ScanLine, X
 import { cases } from '../data/cases'
 import { useProjects, type Project } from '../lib/projects'
 import ProjectArt from './ProjectArt'
-import FigmaScreen from './FigmaScreen'
+import FigmaScreen, { coffeePrototype } from './FigmaScreen'
 
 function ProjectFlow({ project, compact = false }: { project: Project; compact?: boolean }) {
   const [active, setActive] = useState(0)
@@ -39,11 +39,12 @@ function CaseDialog({ project, onClose }: { project: Project; onClose: () => voi
       <div className="dialog-top"><span className="meta">{project.category}</span>
         <button autoFocus className="icon-button" aria-label="Дэлгэрэнгүй цонх хаах" onClick={onClose}><X size={19}/></button></div>
       <h2 id="case-title">{project.title}</h2><p className="dialog-desc">{project.description}</p>
-      {project.slug === 'figma-profile' ? <div className="dialog-fig"><FigmaScreen interactive/><p>Нэр, овог засаж, маягтыг доош гүйлгээд шинэчилж үзээрэй. Жишээ утгууд энэ цонхонд л харагдана.</p></div> : project.live_url ? (
+      {project.slug === 'figma-profile' ? <div className="dialog-fig"><FigmaScreen interactive/><p>Утасны дэлгэц дотор доош гүйлгэж кофены төрлүүдийг үзээрэй.</p></div> : project.live_url ? (
         <iframe className="project-preview" src={project.live_url} title={project.title + ' — сайтын үзүүлэн'}/>
       ) : <ProjectArt project={project}/>}
       <ProjectFlow key={project.slug} project={project}/>
       <div className="dialog-links">
+        {project.slug === 'figma-profile' && <a className="button primary" href={coffeePrototype} target="_blank" rel="noreferrer"><Monitor size={16}/>Прототип нээх</a>}
         {project.live_url && <a className="button primary" href={project.live_url} target="_blank" rel="noreferrer"><Monitor size={16}/>Сайт нээх</a>}
         <a className="button outline" href={project.source_url} target="_blank" rel="noreferrer"><ExternalLink size={16}/>{project.slug === 'figma-profile' ? 'Figma дээр үзэх' : 'GitHub дээр үзэх'}</a>
         {project.slug === 'web231' && <a className="button outline" href="https://github.com/B23FA1882/web231_midterm" target="_blank" rel="noreferrer"><GitBranch size={15}/>WEB231 репозитор</a>}

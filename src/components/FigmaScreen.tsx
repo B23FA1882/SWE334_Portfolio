@@ -1,61 +1,74 @@
-import { useId, useState } from 'react'
+import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 
-const assets = '/images/figma/'
-const fields = [
-  ['Нэр', 'Баясгалан'], ['Овог', 'Өнөрсайхан'], ['Хүйс', 'Эрэгтэй'],
-  ['Утасны дугаар', '•••• ••••'], ['Цахим шуудан', 'B23FA1882@ufe.edu.mn'],
-  ['Нууц үг', '***********'],
+const root = '/images/coffee/'
+const products = [
+  { name: 'БРАЗИЛ', image: 'brazil', roast: 'Дундаж', node: '1-1226' },
+  { name: 'КАФЕЙНГҮЙ', image: 'decaf', roast: 'Дундаж', node: '1-1262' },
+  { name: 'ЗЭРЛЭГ МУУР', image: 'wildcat', roast: 'Гүн', node: '1-1352' },
+  { name: 'КЕНЯА', image: 'kenya', roast: 'Дундаж', node: '1-1244' },
 ]
+const prototype = 'https://www.figma.com/proto/OBLNtmdLxOlF87WkaLtqko/Untitled?page-id=0%3A1&scaling=scale-down&starting-point-node-id=1-788&node-id='
+export const coffeePrototype = prototype + '1-788'
 
-function Asset({ name, left, top, width, height }: { name: string; left: number; top: number; width: number; height: number }) {
-  return <image href={assets + name} x={left} y={top} width={width} height={height}/>
+function icon(name: string, width: number, height = width) {
+  return <img alt="" src={root + name} width={width} height={height} draggable={false}/>
 }
 
-/** Vector layout of the selected Figma frame; SVG keeps all original layers in proportion. */
 export default function FigmaScreen({ interactive = false }: { interactive?: boolean }) {
-  const id = useId()
-  const [updated, setUpdated] = useState(false)
-  return <svg className="figma-screen" viewBox="0 0 375 812" role={interactive ? 'group' : 'img'} aria-label="Хэрэглэгчийн мэдээлэл. Зургаан талбар ба доод цэстэй гар утасны Figma дэлгэц">
-    <defs>
-      <clipPath id={id + '-fields'}><rect x="20" y="108" width="335" height="612"/></clipPath>
-      <linearGradient id={id + '-inset'} x2="0" y2="1" gradientUnits="objectBoundingBox">
-        <stop offset="0" stopColor="#bababa"/><stop offset=".14" stopColor="white"/><stop offset="1" stopColor="white"/>
-      </linearGradient>
-    </defs>
-    <rect width="375" height="812" fill="#f6f6f6"/>
-    <rect width="375" height="44" fill="white"/>
-    <Asset name="Notch.svg" left={78} top={-2} width={219} height={30}/>
-    <text x="32" y="29" className="fig-status">9:41</text>
-    <Asset name="IOsIconSmallMobileSignal.svg" left={295} top={15} width={20} height={16}/>
-    <Asset name="IOsIconSmallWifi.svg" left={317} top={15} width={16} height={16}/>
-    <Asset name="OutlineBorder.svg" left={336} top={17} width={22} height={11.333}/>
-    <Asset name="Node.svg" left={359} top={21} width={1.328} height={4}/>
-    <Asset name="Charge.svg" left={338} top={19} width={18} height={7.333}/>
-    <rect x="0" y="40" width="375" height="48" fill="#9c6f44" fillOpacity=".1"/>
-    <Asset name="IOsIcon24ThreeLineMenu.svg" left={8} top={44} width={40} height={36}/>
-    <text x="187" y="70" textAnchor="middle" className="fig-title">Хэрэглэгчийн мэдээлэл</text>
-    <Asset name="Image28.png" left={336} top={52} width={23} height={23}/>
-    {interactive ? <foreignObject x="20" y="108" width="335" height="612">
-      <form className="fig-form" aria-label="Figma загварын жишээ маягт" onChange={() => setUpdated(false)} onSubmit={event => { event.preventDefault(); setUpdated(true) }}>
-        {fields.map(([label, value], index) => <label key={label}>
-          <span>{label}</span>
-          <input aria-label={label} defaultValue={value} readOnly={index > 1} autoComplete="off" spellCheck={false}/>
-        </label>)}
-        <button type="submit">Мэдээллээ шинэчлэх</button>
-        <p role="status">{updated ? 'Жишээ мэдээлэл энэ цонхонд шинэчлэгдлээ.' : ''}</p>
-      </form>
-    </foreignObject> : <g clipPath={'url(#' + id + '-fields)'}>
-      {fields.map(([label,value], i) => <g key={label} transform={'translate(20,' + (108 + 102 * i) + ')'}>
-        <text x="20" y="17" className="fig-label">{label}</text>
-        <rect x="0" y="26" width="335" height="51" rx="8" fill={'url(#' + id + '-inset)'}/>
-        <text x="20" y="58" className="fig-value">{value}</text>
-      </g>)}
-    </g>}
-    <rect x="0" y="758" width="375" height="54" fill="#d7975b"/>
-    <Asset name="Ellipse1.svg" left={282} top={725} width={84} height={84}/>
-    <Asset name="HomeWhitePic.png" left={39} top={767} width={35} height={35}/>
-    <Asset name="ShopWhitePic.png" left={127} top={767} width={35} height={35}/>
-    <Asset name="HeartWhitePic.png" left={220} top={767} width={35} height={35}/>
-    <Asset name="UserBlackPic.png" left={304} top={747} width={40} height={40}/>
-  </svg>
+  const wrapper = useRef<HTMLDivElement>(null)
+  const scroller = useRef<HTMLDivElement>(null)
+  const [scale, setScale] = useState(1)
+  const [query, setQuery] = useState('')
+  const [slide, setSlide] = useState(0)
+  const banners = ['banner', 'banner-second', 'banner-third']
+  const matches = (name: string) => name.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())
+  const filtered = products.filter(p => matches(p.name))
+  useLayoutEffect(() => {
+    const frame = wrapper.current
+    if (!frame) return
+    const resize = () => setScale(frame.clientWidth / 375)
+    resize()
+    const observer = new ResizeObserver(resize)
+    observer.observe(frame)
+    return () => observer.disconnect()
+  }, [])
+
+  function jump(node: string, label: string, content: ReactNode) {
+    return interactive
+      ? <a href={prototype + node} target="_blank" rel="noreferrer" aria-label={label}>{content}</a>
+      : <span>{content}</span>
+  }
+
+  return <div className="figma-screen" ref={wrapper} role={interactive ? 'group' : 'img'} aria-label="Кофены дэлгүүрийн нүүр дэлгэц">
+    <div className="coffee-stage" style={{ transform: 'scale(' + scale + ')' }}>
+      <div className="coffee-status" aria-hidden="true"><b>9:41</b>{icon('notch.svg',219,30)}
+        <span>{icon('signal.svg',20,16)}{icon('wifi.svg',16)}<i className="coffee-battery">{icon('battery-outline.svg',22,12)}{icon('battery-tip.svg',2,4)}{icon('battery-fill.svg',18,8)}</i></span>
+      </div>
+      <div className="coffee-nav">{jump('1-820','Цэс нээх',icon('menu.svg',40,36))}<span>Тавтай морил</span>{jump('1-1738','Мэдэгдэл үзэх',icon('bell.webp',23))}</div>
+      <div className="coffee-search">
+        {interactive ? <input aria-label="Кофе хайх" placeholder="Хайх зүйл, нэр, түлхүүр үгийг бичнэ үү." value={query} onChange={e => {setQuery(e.target.value); scroller.current?.scrollTo(0,0)}}/> : <span>Хайх зүйл, нэр, түлхүүр үгийг бичнэ үү.</span>}
+        {icon('search.webp',20)}
+      </div>
+      <div className="coffee-scroll" ref={scroller} tabIndex={interactive ? 0 : undefined} aria-label={interactive ? 'Кофены бүтээгдэхүүнүүдийг гүйлгэж үзэх' : undefined}>
+        <div className="coffee-content">
+          {interactive ? <button className="coffee-banner" aria-label="Дараагийн кофены зураг" onClick={() => setSlide((slide + 1) % banners.length)}>{icon(banners[slide] + '.webp',326,144)}</button> : <div className="coffee-banner">{icon('banner.webp',326,144)}</div>}
+          {filtered.length > 0 && <><strong className="coffee-heading">Алдартай бүтээгдэхүүн</strong><div className="coffee-grid">
+            {filtered.map(p => <div className="coffee-product" key={p.image}>
+              {icon(p.image + '.webp',160)}<span className="coffee-like">{jump('1-953','Зүрхэлсэн бүтээгдэхүүн',icon('heart.webp',20))}</span>
+              <b>{p.name}</b><span>{p.roast} хууралттай</span><span>100% Арабика</span>
+              <div className="coffee-buy">{jump(p.node,p.name + ' кофег үзэх','Худалдаж авах')}</div>
+            </div>)}
+          </div></>}
+          {matches('ПЕРУ') && <><strong className="coffee-heading">Өнөөдрийн санал болгох</strong>
+            <div className="coffee-offer">{icon('peru.webp',140)}<div><b>ПЕРУ</b><span>Дундаж хууралттай</span><span>Arabica</span><span><del>30000₮</del> <em>28000₮</em></span></div>{jump('1-1316','Перу кофег үзэх',icon('add.webp',35))}</div></>}
+          {!query.trim() && <><strong className="coffee-heading">Сүүлд үзсэн бүтээгдэхүүн</strong><div className="coffee-more">{jump('1-1012','Бүтээгдэхүүн үзэх','Нэмж харах')}</div>
+            {[['decaf','КАФЕЙНГҮЙ','3 өдрийн өмнө'],['tanzania','ТАНЗАНИА','3 сарын өмнө']].map(([photo,name,date]) => <div className="coffee-recent" key={photo}>{icon(photo + '.webp',94,80)}<b>{name}</b><small>{date}</small></div>)}</>}
+          {filtered.length === 0 && !matches('ПЕРУ') && <p className="coffee-empty">Бүтээгдэхүүн олдсонгүй.</p>}
+        </div>
+      </div>
+      <div className="coffee-tabs"><span className="coffee-home">{interactive ? <button aria-label="Нүүрийн эхэнд очих" onClick={() => {setQuery('');scroller.current?.scrollTo(0,0)}}>{icon('home.webp',40)}</button> : icon('home.webp',40)}</span>
+        {jump('1-1639','Сагс үзэх',icon('cart.webp',35))}{jump('1-915','Зүрхэлсэн бүтээгдэхүүн үзэх',icon('heart.webp',35))}{jump('1-881','Профайл үзэх',icon('profile.webp',35))}
+      </div>
+    </div>
+  </div>
 }

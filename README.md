@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | GREENROOM · PlantStore | Төслийн өөрийн ургамлын зургууд, интерактив тавиур, сагс, захиалгын алхмууд | [Сайт](https://swe-334-plant-store.vercel.app) · [Код](https://github.com/B23FA1882/SWE334_PlantStore) |
 | ISM Digital Museum | Тэнхимийн багш нарын зураг, Time Machine-ийн шүүлт ба он цагийн эрэмбэ | [Сайт](https://swe334ismmuseum.vercel.app) · [Код](https://github.com/B23FA1882/SWE334_ISMmuseum) |
-| Хэрэглэгчийн мэдээлэл | 375 × 812 хэмжээтэй мобайл фрейм, нэр ба овгийг өөрчилж турших жишээ | [Figma фрейм](https://www.figma.com/design/OBLNtmdLxOlF87WkaLtqko/Untitled?node-id=1-881) |
+| Кофены дэлгүүр | Кофены нүүр дэлгэц, гүйлгэдэг бүтээгдэхүүний жагсаалт, эх прототип | [Figma фрейм](https://www.figma.com/design/OBLNtmdLxOlF87WkaLtqko/Untitled?node-id=1-788) |
 | Drive. · WEB231 Midterm | Автомашины танилцуулга, зургаан төрлийн карт, Stories цомог болон сонголттой маягт | [Ажиллуулах](https://sweportfolio-sigma.vercel.app/projects/drive/) · [Демогийн эх код](public/projects/drive) · [Хичээлийн репозитор](https://github.com/B23FA1882/web231_midterm) |
 
 ## Технологи ба өгөгдөл
@@ -29,7 +29,7 @@ React, TypeScript, Vite, Tailwind CSS 4, Lucide, Supabase PostgreSQL / REST, Ver
 | `src/components/ui/portfolio-hero.tsx` | Нэрийн анимэйшн, хөрөг ба танилцуулга |
 | `src/components/Header.tsx` | Гар утасны цэс, өнгөний горим, localStorage |
 | `src/components/Projects.tsx` | Хоёр харагдац, алхмын сонголт, дэлгэрэнгүй цонх |
-| `src/components/FigmaScreen.tsx` | Сонгосон Figma фрейм, жишээ маягт |
+| `src/components/FigmaScreen.tsx` | Кофены дэлгүүрийн гүйлгэдэг нүүр дэлгэц |
 | `src/components/BehindSite.tsx` | Сайтын талаарх асуулт, хариулт, холбогдох код |
 | `src/lib/projects.ts` | Supabase уншилт, хүсэлтийг цуцлах ба нөөц өгөгдөл |
 | `src/data/cases.ts` | Төслийн алхам бүрийн тайлбар, кодын зам |

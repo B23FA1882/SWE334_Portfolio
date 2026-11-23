@@ -43,15 +43,15 @@
   },
   {
     "slug": "figma-profile",
-    "title": "Хэрэглэгчийн мэдээлэл",
+    "title": "Кофены дэлгүүр",
     "category": "Интерфэйс дизайн",
-    "description": "Гар утсан дээр өөрийн бүртгэлийг унших, мэдээллээ шинэчлэх дэлгэцийн Figma загвар.",
+    "description": "Кофены дэлгүүрийн гар утасны Figma загвар. Нүүр дэлгэцийг гүйлгэж алдартай кофе, өнөөдрийн санал, сүүлд үзсэн бүтээгдэхүүнүүдийг үзээрэй.",
     "tags": [
       "Figma",
       "UI дизайн",
       "Mobile"
     ],
-    "source_url": "https://www.figma.com/design/OBLNtmdLxOlF87WkaLtqko/Untitled?node-id=1-881",
+    "source_url": "https://www.figma.com/design/OBLNtmdLxOlF87WkaLtqko/Untitled?node-id=1-788",
     "live_url": null,
     "sort_order": 4
   }
