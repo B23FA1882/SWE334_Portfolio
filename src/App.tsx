@@ -11,8 +11,8 @@ export default function App() {
     <Header/>
     <main id="main">
       <PortfolioHero/>
-      <Projects/>
       <About/>
+      <Projects/>
       <BehindSite/>
     </main>
     <Contact/>

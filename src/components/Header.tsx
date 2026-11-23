@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Menu, Moon, Sun, X } from 'lucide-react'
 
 const nav = [
-  ['#work', 'Бүтээлүүд'], ['#about', 'Миний тухай'], ['#contact', 'Холбоо барих'],
+  ['#about', 'Миний тухай'], ['#work', 'Бүтээлүүд'], ['#contact', 'Холбоо барих'],
 ]
 function initialTheme() {
   try { return localStorage.getItem('ub-portfolio-theme') === 'light' ? 'light' : 'dark' }
